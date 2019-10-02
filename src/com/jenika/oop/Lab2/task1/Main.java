@@ -1,6 +1,4 @@
-package Lab2.task1;
-
-import Lab2.task1.Box;
+package com.jenika.oop.Lab2.task1;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +13,9 @@ public class Main {
         Box box2 = new Box(6, 7, 8);
 
 
+        System.out.println(box1.calculateArea()+" "+box1.calculateV());
+        System.out.println(box2.calculateArea()+" "+box2.calculateV());
+        System.out.println(box3.calculateArea()+" "+box3.calculateV());
     }
 
 

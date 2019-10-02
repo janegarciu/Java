@@ -10,6 +10,7 @@ ArrayList<Integer> list;
 
         list = new ArrayList<Integer>();
         parameter = false;
+        System.out.println("Is never full");
     }
 
     Queue(int maxSize){

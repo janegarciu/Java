@@ -6,6 +6,19 @@ public class Main {
         queue1.push(1);
         queue1.push(2);
         queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
+        queue1.push(3);
         queue1.pop();
         System.out.println("Print the queue:" + queue1.list);
 
