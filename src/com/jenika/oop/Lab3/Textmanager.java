@@ -37,8 +37,7 @@ public class Textmanager {
               int vowels = 0, consonants = 0, spaces = 0;
               for (int i = 0; i < text.length(); ++i) {
                      char ch = text.charAt(i);
-                     if (ch == 'a' || ch == 'e' || ch == 'i'
-                             || ch == 'o' || ch == 'u') {
+                     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                             ++vowels;
                      } else if ((ch >= 'a' && ch <= 'z')) {
                             ++consonants;
@@ -49,7 +48,7 @@ public class Textmanager {
               System.out.println("Number of vowels:" + vowels + "\n" + "Number of consonants:" + consonants + "\n" + "Number of spaces:" + spaces);
        }
 
-       //Method to count most repeated words
+       //Method to count most repeated word
        public void countMostRepeatedWord(String text) {
               int count;
               int maxCount = 0;
@@ -59,9 +58,9 @@ public class Textmanager {
               for (String s : newText) {
                      words.add(s);
               }
-              //Determine the most repeated word in a file
+              //Determine the most repeated word
               for (int i = 0; i < words.size(); i++) {
-                     //Count each word in the file and store it in variable count
+                     //Count each word and store it in variable count
                      count = 1;
                      for (int j = i + 1; j < words.size(); j++) {
                             if (words.get(i).equals(words.get(j))) {
@@ -95,28 +94,31 @@ public class Textmanager {
               System.out.println(longWord + " is longest word with " + longWord.length() + " characters");
        }
        public static void top5Words(String text) {
-              HashMap<String, Integer> map = new HashMap<String, Integer>();
-              ArrayList<String> arrayList = new ArrayList(Arrays.asList(text.toLowerCase().split("[,.!?;[0-9]\\s]+")));
-              for (int i = 1; i <= 5; i++) {
-                     int maxValue = 0;
 
-                     for (String word : arrayList) {
-                            Integer number = map.get(word);
-                            if (number == null) number = 1;
-                            else number = ++number;
-                            map.put(word, number);
+
+
+
+              HashMap<String, Integer> wordCountersMap = new HashMap<>();
+              ArrayList<String> words = new ArrayList(Arrays.asList(text.toLowerCase().split("[,.!?;[0-9]\\s]+")));
+              for (int i = 1; i <= 5; i++) {
+                     int biggestCounter = 0;
+
+                     for (String word : words) {
+                            Integer counter = wordCountersMap.get(word);
+                            counter = (counter == null) ? 1 : counter + 1;
+                            wordCountersMap.put(word, counter);
                      }
 
-                     for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                     for (Map.Entry<String, Integer> entry : wordCountersMap.entrySet()) {
                             int value = entry.getValue();
-                            if (value > maxValue) {
-                                   maxValue = value;
+                            if (value > biggestCounter) {
+                                   biggestCounter = value;
                             }
                      }
-                     String key = getKeyFromValue(map, maxValue);
+                     String key = getKeyFromValue(wordCountersMap, biggestCounter);
                      System.out.println(" Top " + i + " = " + key);
-                     map.remove(key);
-                     arrayList.removeAll(Collections.singleton(key));
+                     wordCountersMap.remove(key);
+                     words.removeAll(Collections.singleton(key));
               }
        }
 
