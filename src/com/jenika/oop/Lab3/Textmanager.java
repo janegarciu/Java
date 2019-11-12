@@ -1,4 +1,4 @@
-package com.jenika.oop.Lab3.task1;
+package com.jenika.oop.Lab3;
 import java.util.*;
 
 public class Textmanager {

@@ -1,14 +1,14 @@
 package com.jenika.oop.Lab4;
-import java.util.Arrays;
+
 import java.util.Stack;
 
 
-public class CheckBalancedParanthesis {
+ public class ParanthesisChecker {
 
-    public  String CheckIfBalanced(String expr)
+    public  boolean isBalanced(String expr)
     {
         if (expr.isEmpty())
-            return "Balanced";
+            return true;
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < expr.length(); i++) {
             char current = expr.charAt(i);
@@ -17,15 +17,15 @@ public class CheckBalancedParanthesis {
             }
             if (current == '}' || current == ')' || current == ']') {
                 if (stack.isEmpty())
-                    return "Not Balanced";
+                    return false;
                 char last = stack.peek();
                 if (current == '}' && last == '{' || current == ')' && last == '(' || current == ']' && last == '[')
                     stack.pop();
                 else
-                    return "Not Balanced";
+                    return false;
             }
         }
-        return stack.isEmpty()?"Balanced":"Not Balanced";
+        return stack.isEmpty();
     }
 
 }

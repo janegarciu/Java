@@ -1,4 +1,4 @@
-package com.jenika.oop.Lab3.task1;
+package com.jenika.oop.Lab3;
 
 public class Main {
     public static void main(String[] args) {
